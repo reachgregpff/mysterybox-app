@@ -4,9 +4,8 @@
   <p> You have not saved any 'likes'! </p>
   <%else%>
 
-    <%@likes.each do | record | 
-
-      recipe = record["recipe"]
+    <%for i in 0..(@likes.length-1) do
+      recipe = @likes[(@likes.length-1)-i]["recipe"]   #display in reverse order, recent 'like' first
 
     %>
 
