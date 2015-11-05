@@ -13,14 +13,14 @@ require_relative 'models/recipe'
 enable :sessions
 
 ingredients = ["duck", "lamb", "chicken", "quail", "turkey", "beef", "pork", 
-    "bacon", "sausage", "chorizo",
-    "salmon", "tuna", "prawn", "lobster", "scallop", "oyster", "mussels", "octopus", "snapper", "trout", "squid","sea bass", "crab",
+    "bacon", "sausage", "chorizo", "caviar", "truffle", "saffron", "liver", "prosciutto",
+    "salmon", "tuna", "prawn", "lobster", "scallop", "oyster", "mussels", "octopus", "snapper", "trout", "squid","bass", "crab",
     "ginger", "garlic", "galangal", "lemon", 
     "chocolate", "raspberry", "blueberry", "apple", "pear", "pineapple",
     "leek", "kale", "asparagus", "spinach", "basil",
     "cheese", "cream", "yoghurt", "butter", "mozzarella", "ricotta",
-    "coriander", "dil", "rosemary", "sage", "bay leaf", "parsley", "celery", "thyme",
-    "soy", "honey", "mushroom", "miso", "wine",
+    "coriander", "dil", "rosemary", "sage", "broccoli", "parsley", "celery", "thyme",
+    "soy", "honey", "mushroom", "miso", "wine", "beer",
     "tomato", "onion", "capsicum", "olive", "eggs", "chilli", "celeriac",
     "eggplant", "potato", "beans", "avocado", "coconut", "peanut"
   ]
@@ -28,10 +28,9 @@ ingredients = ["duck", "lamb", "chicken", "quail", "turkey", "beef", "pork",
 random_ingredients = nil
 
 #F2F_KEY = "fc17a9b17498703b8a27a351123f3558"
-#F2F_KEY = "4c0f14cbb97734b74bd7d48b308b586e"
+F2F_KEY = "4c0f14cbb97734b74bd7d48b308b586e"
 #F2F_KEY = "7b5f61521a1edd1ed28d8f8cfcd37e74"
 #F2F_KEY = "c4811bec803fc780b8fd6f6c55aa19fa"
-F2F_KEY = "c4811bec803fc780b8fd6f6c55aa19fa"
 
 save_recipe = nil
 
@@ -73,7 +72,7 @@ end
 
 
 # LANDING PAGE ----------------------------------------------------------------------------------
-get '/yellow' do
+get '/' do
 
 
   erb :index
@@ -95,36 +94,44 @@ end
 # FETCH recipes ----------------------------------------------------------------------------------
 get '/recipes' do
 
-  @combo5 = random_ingredients
-  @combo4 = random_ingredients.combination(4).to_a
-  @combo3 = random_ingredients.combination(3).to_a
+  if logged_in?
 
-  @start_time =  Time.now
-  @results5 = nil
-  @results4 = []
-  @results3 = []
+    @combo5 = random_ingredients
+    @combo4 = random_ingredients.combination(4).to_a
+    @combo3 = random_ingredients.combination(3).to_a
 
-  #combo 5
+    @start_time =  Time.now
+    @results5 = nil
+    @results4 = []
+    @results3 = []
 
-  query_string = "http://food2fork.com/api/search?key=" + F2F_KEY + "&sort=r&q=" + @combo5.join(",")
-  @results5 = HTTParty.get(query_string)
+    #combo 5
 
-  #combo 4
-  for i in 0..(@combo4.length-1) do
-    query_string = "http://food2fork.com/api/search?key=" + F2F_KEY + "&sort=r&q=" + @combo4[i].join(",")
-    @results4[i] = HTTParty.get(query_string)
+    query_string = "http://food2fork.com/api/search?key=" + F2F_KEY + "&sort=r&q=" + @combo5.join(",")
+    @results5 = HTTParty.get(query_string)
+
+    #combo 4
+    for i in 0..(@combo4.length-1) do
+      query_string = "http://food2fork.com/api/search?key=" + F2F_KEY + "&sort=r&q=" + @combo4[i].join(",")
+      @results4[i] = HTTParty.get(query_string)
+    end
+
+    #combo 3
+    for i in 0..(@combo3.length-1) do
+      query_string = "http://food2fork.com/api/search?key=" + F2F_KEY + "&sort=r&q=" + @combo3[i].join(",")
+      @results3[i] = HTTParty.get(query_string)
+    end
+
+    @end_time = Time.now
+
+
+    erb :recipes
+
+  else
+
+    erb :pleaselogin
   end
 
-  #combo 3
-  for i in 0..(@combo3.length-1) do
-    query_string = "http://food2fork.com/api/search?key=" + F2F_KEY + "&sort=r&q=" + @combo3[i].join(",")
-    @results3[i] = HTTParty.get(query_string)
-  end
-
-  @end_time = Time.now
-
-
-  erb :recipes
 end
 
 
@@ -178,9 +185,17 @@ end
 # Display all likes for this user ----------------------------------------------------------------------------------
 get '/likes' do
 
-  @likes = Recipe.where(username: session[:username])
+  if !logged_in?
+
+    erb :pleaselogin
+
+  else
+
+    @likes = Recipe.where(username: session[:username])
     
-  erb :likes
+    erb :likes
+
+  end
 
 end
 
@@ -243,7 +258,7 @@ post '/session' do
 
   else
     #redirect user
-    redirect to '/login'
+    erb :loginerror
   end
 
 end

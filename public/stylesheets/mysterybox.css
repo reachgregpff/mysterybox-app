@@ -14,8 +14,9 @@
 #button-mystery{
   position: absolute;
   float: left;
-  top: 10%;
+  top: 15%;
   left: 10%;
+  width: 30%;
 }
 
 #button-or{
@@ -34,7 +35,7 @@
 
 #mystery_statement{
   position: absolute;
-  font-size: 30px;
+  font-size: 1.5em;
   float: left;
   top : 20%;
   left: 10%;
@@ -43,11 +44,15 @@
 
 .mystery_ingredients{
   position: absolute;
-  font-size: 40px;
+  font-size: 25px;
   float: left;
   left:10%;
-  font-weight: bolder;
+  font-weight: bold;
   color:white;
+}
+
+.mystery-numbers{
+  width:4%;
 }
 
 #m1{
@@ -81,7 +86,7 @@
 
 #go_statement1{
 
-  font-size: 30px;
+  font-size: 25px;
   color: white;
   position: absolute;
   left: 45%;
@@ -90,12 +95,11 @@
 
 #go_statement2{
 
-  font-size: 30px;
+  font-size: 25px;
   color: white;
   position: absolute;
   left: 40%;
   top: 55%;
 }
-
 
 

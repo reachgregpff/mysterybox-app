@@ -2,8 +2,9 @@ body{
   margin: 0 auto;
   /*max-width: 900px */
   max-width: 100%;
-  font-family: fantasy;
-  font-style: copperplate;
+  /*font-family: 'times new roman';*/
+  font-family: 'Palatino Linotype';
+  /*font-style: copperplate;*/
   /*font-style: papyrus;  this is the other font in this family*/ 
 }
 
@@ -68,8 +69,8 @@ ul {
 }
 
 .menu-buttons:hover {
-    color: maroon;
-    background-color: #F8F8F8;
+    color: white;
+    background-color: grey;
 }
 
 li {
@@ -130,7 +131,7 @@ li {
 
 #challenge-caption{
   position: absolute;
-  left: 30%;
+  left: 35%;
   top: 15%;
   font-size: 50px;
   color:white;
