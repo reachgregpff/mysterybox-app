@@ -6,6 +6,7 @@ gem 'json'
 gem 'pg'
 gem 'httparty'
 gem 'activerecord'
+gem 'bcrypt'
 
 
 
