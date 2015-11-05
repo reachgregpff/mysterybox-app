@@ -1,0 +1,62 @@
+<!--    recipes that contain 3 ingredients   -->
+
+<h1 style="color:red">Recipes that use 3 ingredients:</h1>
+
+<%for i in 0..(@combo3.length-1) do %>
+
+  <%if JSON.parse(@results3[i])["count"] != 0%>
+
+    <h2>  <%=@combo3[i]%>   </h2>
+
+    <%@results3[i].each  { |recipe | %>
+
+      <p style="background-color:yellow"> <%=JSON.parse(recipe)["recipes"].first["title"]%> </p>
+
+    <%}%>
+
+  <% else %>
+
+    <p style="background-color:yellow"> No recipes found </p>
+
+  <% end %>
+
+
+<%end%>
+
+
+SEARCH
+
+=> {"count"=>1,
+ "recipes"=>
+  [{"publisher"=>"Bon Appetit",
+    "f2f_url"=>"http://food2fork.com/view/52530",
+    "title"=>"Minted Lamb Burgers with Feta and Hummus",
+    "source_url"=>"http://www.bonappetit.com/recipes/2006/02/minted_lamb_burgers_with_feta_and_hummus",
+    "recipe_id"=>"52530",
+    "image_url"=>"http://static.food2fork.com/mare_minted_lamb_burgers_with_feta_and_hummus_vd3a4.jpg",
+    "social_rank"=>38.88840749276981,
+    "publisher_url"=>"http://www.bonappetit.com"}]}
+[8] pry(#<Sinatra::Application>)> 
+[9] pry(#<Sinatra::Application>)> 
+[10] pry(#<Sinatra::Application>)> 
+[11] pry(#<Sinatra::Application>)> 
+[12] pry(#<Sinatra::Application>)> x = JSON.parse(@results3[5])["recipes"]
+=> [{"publisher"=>"Bon Appetit",
+  "f2f_url"=>"http://food2fork.com/view/52530",
+  "title"=>"Minted Lamb Burgers with Feta and Hummus",
+  "source_url"=>"http://www.bonappetit.com/recipes/2006/02/minted_lamb_burgers_with_feta_and_hummus",
+  "recipe_id"=>"52530",
+  "image_url"=>"http://static.food2fork.com/mare_minted_lamb_burgers_with_feta_and_hummus_vd3a4.jpg",
+  "social_rank"=>38.88840749276981,
+  "publisher_url"=>"http://www.bonappetit.com"}]
+
+
+
+GET
+ @result = HTTParty.get(query_string)
+=> "{\"recipe\": {\"publisher\": \"BBC Good Food\", \"f2f_url\": \"http://food2fork.com/view/944a6e\", \"ingredients\": [\"boned leg of lamb , about 2-2.5kg (after boning)\", \"300g young spinach , any long stalks taken off\", \"butter\", \"2 tbsp pine nuts , toasted\", \"6 dried apricots , chopped\", \"a small bunch rosemary\", \"a small bunch thyme\", \"a head garlic , halved horizontally\"], \"source_url\": \"http://www.bbcgoodfood.com/recipes/10319/rolled-leg-of-lamb\", \"recipe_id\": \"944a6e\", \"image_url\": \"http://static.food2fork.com/10319_MEDIUM7902.jpg\", \"social_rank\": 51.27641756061983, \"publisher_url\": \"http://www.bbcgoodfood.com\", \"title\": \"Rolled leg of lamb\"}}"
+[5] pry(#<Sinatra::Application>)> 
+
+
+
+

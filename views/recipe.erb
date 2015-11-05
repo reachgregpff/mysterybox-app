@@ -1,0 +1,34 @@
+<div class="span-2" id="recipe-details">
+
+  <div id="display-recipe">
+    <h2 style="background-color:grey; color:white;"> <cite style="color:yellow">Combination: </cite><%=@ingredients_combo%></h2>
+    <p id="display-recipe-title"><%=JSON.parse(@recipe)["recipe"]["title"]%></p>
+    <p class="bold-and-red">Social Rating: <%=JSON.parse(@recipe)["recipe"]["social_rank"].ceil%></p>
+    <img id="display-recipe-title" src="<%=JSON.parse(@recipe)["recipe"]["image_url"]%>" alt="">
+    <br><a href="/like/<%=JSON.parse(@recipe)["recipe"]["recipe_id"]%>">
+      <img id="display-recipe-like" src="/like.gif" alt="">
+      </a>
+    <p class="bold-and-red">Ingredients:<p>
+      <%JSON.parse(@recipe)["recipe"]["ingredients"].each do | ingredient |  %>
+          <p id="ingredient"><%=ingredient%></p>
+      <%end %>
+    <h3 class="bold-and-red">Directions: </h3>
+    <a href="<%=JSON.parse(@recipe)["recipe"]["source_url"]%>">
+      View on <%=JSON.parse(@recipe)["recipe"]["publisher"]%>
+    </a>
+    
+  </div>
+
+</div>
+
+
+<div class="span-2" id="do-da-challenge">
+
+    <p> Powered by </p>
+    <img src="/food2fork.png" alt="">
+    <br>
+
+</div>
+
+
+

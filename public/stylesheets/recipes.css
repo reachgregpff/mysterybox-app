@@ -1,0 +1,42 @@
+#recipes-span{
+  position: relative;
+  float: left;
+  margin-top: 10px;       /* 10/900 */
+  margin-right: 1.11111111%;
+  width: 98.88888%; 
+  background-color: #F8F8F8;
+  color: black;
+}
+
+#recipes-statement {
+  font-size: 25px;
+  font-weight: bolder;
+  color:black;
+  text-decoration: underline;
+}
+
+.recipe-table{
+  max-width: 100%;
+}
+
+.table-header{
+  background-color: white;
+  width: 24%;
+  border : solid white 2px;
+}
+
+.recipe-cell{
+  background-color: white;
+  max-width: 25%;
+  border : solid grey 2px;
+
+}
+
+.recipe-image{
+  width: 100%;
+}
+
+.recipe-link{
+}
+
+

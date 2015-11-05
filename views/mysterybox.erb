@@ -1,0 +1,42 @@
+
+<div id="mystery-span">
+
+  <img id="mystery-image" src="/MasterChef_MysteryBox.jpg" alt=""> 
+
+  <a href="/mysterybox">     <!-- reload page again with fresh set of ingredients -->
+        <img id="button-mystery" src = "/button-reload-mystery-ings.png" alt="">
+  </a>
+
+  <!--<img id="button-or" src = "/button-or.gif" alt="">
+  <img id="button-select" src = "/button-select-ingredients.gif" alt="">   future feature -->
+
+  <p id="mystery_statement">Your Mystery Ingredients are: </p>
+
+  <div class="mystery_ingredients" id="m1">
+    <img src="/button-1.gif" alt="">
+    <p style="display: inline-block;"><%= @mystery_ingredients[0] %></p>
+  </div>
+  <div class="mystery_ingredients" id="m2">
+    <img src="/button-2.gif" alt="">
+    <p style="display: inline-block;"><%= @mystery_ingredients[1] %></p>
+  </div>
+  <div class="mystery_ingredients" id="m3">
+    <img src="/button-3.gif" alt="">
+    <p style="display: inline-block;"><%= @mystery_ingredients[2] %></p>
+  </div>
+  <div class="mystery_ingredients" id="m4">
+    <img src="/button-4.gif" alt="">
+    <p style="display: inline-block;"><%= @mystery_ingredients[3] %></p>
+  </div>
+  <div class="mystery_ingredients" id="m5">
+    <img src="/button-5.gif" alt="">
+    <p style="display: inline-block;"><%= @mystery_ingredients[4] %></p>
+  </div>
+
+  <a href="/recipes"> 
+      <img id="go-button" src="/go_button.png" alt="">
+  </a>
+  <p id="go_statement1">I Need Help!!!! </p>
+  <p id="go_statement2">Go fetch matching recipes... </p>
+
+</div>

@@ -1,0 +1,31 @@
+#display-recipe{
+  background-color: #F8F8F8;
+  border: 4px solid grey 2px;
+  padding: 5%;
+}
+
+#display-recipe-title{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.bold-and-red{
+  font-size: 20px;
+  font-weight: bold;
+  color:red;
+}
+
+#ingredient{
+  font-size: 15px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+#display-recipe-title{
+  max-width: 98%;
+}
+
+#display-recipe-like{
+  width: 20%;
+}
+

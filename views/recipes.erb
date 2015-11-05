@@ -1,0 +1,194 @@
+
+<div id="recipes-span">
+
+  <p id="recipes-statement"> Here are recipes to help you arrive at that elevated dish!   </p>
+
+  <br><img src="image-5-ingredients.png" alt="">
+
+  <h2 style="background-color:grey; color:white;"><cite style="color:yellow">All 5 ingredients:</cite> <%=@combo5.join(', ')%>   </h2>
+
+  <% if JSON.parse(@results5)["count"] != 0 %>
+
+    <%count = 0 %>
+
+    <table class="recipe-table">
+
+      <tr>
+        <td class="table-header"></td>
+        <td class="table-header"></td>
+        <td class="table-header"></td>
+        <td class="table-header"></td>
+      </tr>
+
+      <% result_count = JSON.parse(@results5)["count"]%>
+
+      <%for j in 0..(result_count -1) do %>
+
+          <%if j%4 == 0%>
+            <tr>
+          <%end%>
+              
+          <td class="recipe-cell">
+            <img class="recipe-image" src = "<%=JSON.parse(@results5)["recipes"][j]["image_url"]%>" alt="">
+            <br>
+            <a href="/recipe/<%=JSON.parse(@results5)["recipes"][j]["recipe_id"]%>?combo=<%=@combo5.join(', ')%>">
+              <%=JSON.parse(@results5)["recipes"][j]["title"]%>
+            </a>
+            <br><%=JSON.parse(@results5)["recipes"][j]["publisher_url"]%>
+          </td>
+             
+          <%count = count + 1
+          if count == 10        # limit the recipes displayed to 10 per combination search 
+            break
+          end%>
+                
+
+          <%if j%4 == 3 || j == (result_count-1)%>
+          </tr>
+          <%end%>
+
+        <%end%>
+    </table>
+
+  <% else %>
+
+    <p> No recipes found </p>
+
+  <% end %>
+
+  <!--    recipes that contain 4 ingredients   -->
+
+  <br><img src="image-4-ingredients.png" alt="">
+
+  <% recipe_found = false %>
+
+  <%for i in 0..(@combo4.length-1) do %>
+
+    <%if JSON.parse(@results4[i])["count"] != 0%>
+
+      <%recipe_found = true%>
+
+      <h2 style="background-color:grey; color:white;"> <cite style="color:yellow">Combination:</cite><%=@combo4[i].join(', ')%>   </h2>
+
+      <%count = 0 %>
+
+      <table class="recipe-table">
+
+        <tr>
+          <td class="table-header"></td>
+          <td class="table-header"></td>
+          <td class="table-header"></td>
+          <td class="table-header"></td>
+        </tr>
+
+        <% result_count = JSON.parse(@results4[i])["count"]%>
+
+        <%for j in 0..(result_count-1) do %>
+
+          <%if j%4 == 0%>
+          <tr>
+          <%end%>
+            
+            <td class="recipe-cell">
+              <img class="recipe-image" src = "<%=JSON.parse(@results4[i])["recipes"][j]["image_url"]%>" alt="">
+              <br>
+              <a href="/recipe/<%=JSON.parse(@results4[i])["recipes"][j]["recipe_id"]%>?combo=<%=@combo4[i].join(', ')%>">
+                <%=JSON.parse(@results4[i])["recipes"][j]["title"]%>
+              </a>
+              <br><%=JSON.parse(@results4[i])["recipes"][j]["publisher_url"]%>
+            </td>
+           
+            <%count = count + 1
+            if count == 10        # limit the recipes displayed to 10 per combination search 
+              break
+            end%>
+              
+
+          <%if j%4 == 3 || j == (result_count-1)%>
+          </tr>
+          <%end%>
+
+        <%end%>
+
+      </table>
+
+    <%end%>
+
+  <%end%>
+
+  <%if !recipe_found %>
+
+    <p> No recipes found </p>
+
+  <% end %>
+
+  <!--    recipes that contain 3 ingredients   -->
+
+  <br><img src="image-3-ingredients.png" alt="">
+  
+  <% recipe_found = false %>
+
+  <%for i in 0..(@combo3.length-1) do %>
+
+    <%if JSON.parse(@results3[i])["count"] != 0%>
+
+      <%recipe_found = true%>
+
+      <h2 style="background-color:grey; color:white;"> <cite style="color:yellow">Combination: </cite><%=@combo3[i].join(', ')%>   </h2>
+
+      <%count = 0 %>
+
+      <table class="recipe-table">
+
+        <tr>
+          <td class="table-header"></td>
+          <td class="table-header"></td>
+          <td class="table-header"></td>
+          <td class="table-header"></td>
+        </tr>
+
+        <% result_count = JSON.parse(@results3[i])["count"]%>
+
+        <%for j in 0..(result_count-1) do %>
+
+          <%if j%4 == 0%>
+          <tr>
+          <%end%>
+            
+            <td class="recipe-cell">
+
+              <img class="recipe-image" src = "<%=JSON.parse(@results3[i])["recipes"][j]["image_url"]%>" alt="">
+              <br>
+              <a href="/recipe/<%=JSON.parse(@results3[i])["recipes"][j]["recipe_id"]%>?combo=<%=@combo3[i].join(', ')%>">
+                <%=JSON.parse(@results3[i])["recipes"][j]["title"]%>
+              </a>
+              <br><%=JSON.parse(@results3[i])["recipes"][j]["publisher_url"]%>
+            </td>
+           
+            <%count = count + 1
+            if count == 10        # limit the recipes displayed to 10 per combination search 
+              break
+            end%>
+              
+
+          <%if j%4 == 3 || j == (result_count-1)%>
+          </tr>
+          <%end%>
+
+        <%end%>
+
+      </table>
+
+    <%end%>
+
+  <%end%>
+
+  <%if !recipe_found %>
+
+    <p> No recipes found </p>
+
+  <% end %>
+
+
+
+</div>

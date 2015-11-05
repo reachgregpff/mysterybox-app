@@ -1,0 +1,101 @@
+#mystery-span{
+  /*position: relative;*/
+  /*top: 60px;*/
+  float: left;
+  margin-top: 10px;       /* 10/900 */
+  margin-right: 1.11111111%;
+  width: 98.88888%; 
+}
+
+#mystery-image{
+  max-width: 100%;
+}
+
+#button-mystery{
+  position: absolute;
+  float: left;
+  top: 10%;
+  left: 10%;
+}
+
+#button-or{
+  position: absolute;
+  float: left;
+  top: 10%;
+  left: 40%;
+}
+
+#button-select{
+  position: absolute;
+  float: right;
+  top: 10%;
+  left: 50%;
+}
+
+#mystery_statement{
+  position: absolute;
+  font-size: 30px;
+  float: left;
+  top : 20%;
+  left: 10%;
+  color: white;
+}
+
+.mystery_ingredients{
+  position: absolute;
+  font-size: 40px;
+  float: left;
+  left:10%;
+  font-weight: bolder;
+  color:white;
+}
+
+#m1{
+  top:30%;
+}
+
+#m2{
+  top:40%;
+}
+
+#m3{
+  top:50%;
+}
+
+#m4{
+  top:60%;
+}
+
+#m5{
+  top:70%;
+}
+
+#go-button{
+
+  position: absolute;
+  width: 20%;
+  /*left: 32%; */
+  left: 40%;
+  top: 30%;
+}
+
+#go_statement1{
+
+  font-size: 30px;
+  color: white;
+  position: absolute;
+  left: 45%;
+  top: 50%;
+}
+
+#go_statement2{
+
+  font-size: 30px;
+  color: white;
+  position: absolute;
+  left: 40%;
+  top: 55%;
+}
+
+
+

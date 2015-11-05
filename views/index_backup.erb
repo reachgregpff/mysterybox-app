@@ -1,0 +1,111 @@
+<h1>DIY Mystery Box Challenge</h1>
+<h2>Helper Recipies to conjure that "Elevated Dish"</h2>
+
+<h1 style="color:red">Recipes that use 5 ingredients:  <%=@combo5.join(', ')%></h1>
+
+<% if JSON.parse(@results5)["count"] != 0 %>
+
+  <%for j in 0..(JSON.parse(@results5)["count"]-1) do %>
+
+    <p style="color:blue"> <%=JSON.parse(@results5)["recipes"][j]["title"]%> </p>
+    <p style="color:blue"> <%=JSON.parse(@results5)["recipes"][j]["source_url"]%> </p>
+    <img src="<%=JSON.parse(@results5)["recipes"][j]["image_url"]%>" alt="">
+
+  <%end%>
+
+<% else %>
+
+  <p style="background-color:yellow"> No recipes found </p>
+
+<% end %>
+
+<!--    recipes that contain 4 ingredients   -->
+
+<h1 style="color:red">Recipes that use 4 ingredients:</h1>
+
+<% recipe_found = false %>
+
+<%for i in 0..(@combo4.length-1) do %>
+
+  <%if JSON.parse(@results4[i])["count"] != 0%>
+
+    <%recipe_found = true%>
+
+    <h2>  <%=@combo4[i].join(', ')%>   </h2>
+
+    <%count = 0 %>
+
+    <%for j in 0..(JSON.parse(@results4[i])["count"]-1) do %>
+
+      <p style="color:blue"> <%=JSON.parse(@results4[i])["recipes"][j]["title"]%> </p>
+      <p style="color:blue"> <%=JSON.parse(@results4[i])["recipes"][j]["source_url"]%> </p>
+      <img src="<%=JSON.parse(@results4[i])["recipes"][j]["image_url"]%>" alt="">
+
+      <% count = count + 1
+
+      if count ==5 
+        break
+      end%>
+
+    <%end%>
+
+  <%end%>
+
+<%end%>
+
+<%if !recipe_found %>
+
+  <p style="background-color:yellow"> No recipes found </p>
+
+<% end %>
+
+<!--    recipes that contain 3 ingredients   -->
+
+<h1 style="color:red">Recipes that use 3 ingredients:</h1>
+
+<% recipe_found = false %>
+
+<%for i in 0..(@combo3.length-1) do %>
+
+  <%if JSON.parse(@results3[i])["count"] != 0%>
+
+    <%recipe_found = true%>
+
+    <h2>  <%=@combo3[i].join(', ')%>   </h2>
+
+    <%count = 0 %>
+
+    <%for j in 0..(JSON.parse(@results3[i])["count"]-1) do %>
+
+      <p style="color:blue"> <%=JSON.parse(@results3[i])["recipes"][j]["title"]%> </p>
+      <p style="color:blue"> <%=JSON.parse(@results3[i])["recipes"][j]["source_url"]%> </p>
+      <img src="<%=JSON.parse(@results3[i])["recipes"][j]["image_url"]%>" alt="">
+
+      <% count = count + 1
+
+      if count ==5
+        break
+      end%>
+
+    <%end%>
+
+  <%end%>
+
+<%end%>
+
+<%if !recipe_found %>
+
+  <p style="background-color:yellow"> No recipes found </p>
+
+<% end %>
+
+
+
+
+
+
+
+
+
+
+

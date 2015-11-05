@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>DIY Mystery Box</title>
+    <link rel='stylesheet' href='/stylesheets/main.css'>
+    <link rel='stylesheet' href='/stylesheets/mysterybox.css'>
+    <link rel='stylesheet' href='/stylesheets/recipes.css'>
+    <link rel='stylesheet' href='/stylesheets/recipe.css'>
+    <link rel='stylesheet' href='/stylesheets/likes.css'>
+  </head>
+  <body id="landing-page">
+
+  <!--  MENU STARTS HERE  -->
+  <div class="span-3" id="menu">
+    <nav>
+      <img class="menu-item" id="logo" src="/DIY-MB-logo.png" alt="">
+      <ul>
+        <li><a class="menu-buttons" href="#">about</a></li>
+        <li><a class="menu-buttons" href="#">take challenge</a></li>
+        <li><a class="menu-buttons" href="/likes">likes</a></li>
+        <li><a class="menu-buttons" href="/signup">signup</a></li>
+
+
+        <% if logged_in? %> 
+          <li style="color:orange">logged as <%= current_user.username %></li>
+          <li style="float:right"><a class="menu-buttons" href="/logout">logout</a></li>
+        <% else %>
+          <li><a class="menu-buttons" href="/login">login</a></li>
+        <% end %>
+
+      </ul>
+    </nav>
+  </div>
+  <!--  MENU ENDS HERE  -->
+
+    <%= yield %>
+
+  <!--  FOOTER STARTS HERE  -->
+
+  <div class="span-3" id="footer">
+    <nav >
+      <p>©2015 DIY Mystery Box.Contact:   DIY@mysterybox.com</p>
+    </nav>
+  </div>
+  <!--  FOOTER ENDS HERE  -->
+
+
+  </body>
+</html>
