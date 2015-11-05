@@ -15,8 +15,8 @@
       <p id="display-recipe-title"><%=JSON.parse(recipe)["recipe"]["title"]%></p>
       <p class="bold-and-red">Social Rating: <%=JSON.parse(recipe)["recipe"]["social_rank"].ceil%></p>
       <img id="display-recipe-title" src="<%=JSON.parse(recipe)["recipe"]["image_url"]%>" alt="">
-      <br><a href="/like/<%=JSON.parse(recipe)["recipe"]["recipe_id"]%>">
-        <img id="display-recipe-like" src="/like.gif" alt="">
+      <br><a href="/dislike/<%=JSON.parse(recipe)["recipe"]["recipe_id"]%>">
+        <img id="display-recipe-like" src="/unlike.png" alt="">
         </a>
       <p class="bold-and-red">Ingredients:<p>
         <%JSON.parse(recipe)["recipe"]["ingredients"].each do | ingredient |  %>

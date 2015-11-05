@@ -199,6 +199,27 @@ get '/likes' do
 
 end
 
+# Display all likes for this user ----------------------------------------------------------------------------------
+get '/dislike/:recipe_id' do
+
+  if !logged_in?
+
+    erb :pleaselogin
+
+  else
+    dislike = Recipe.find_by(username: session[:username], recipe_id: params[:recipe_id])  #get record to delete
+    
+    if dislike
+      dislike.destroy
+      @likes = Recipe.where(username: session[:username])
+    end
+    
+    erb :likes
+
+  end
+
+end
+
 
 
 #-----------------------
