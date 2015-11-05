@@ -25,7 +25,7 @@
 
 
         <% if logged_in? %> 
-          <li style="color:orange">logged as <%= current_user.username %></li>
+          <li style="color:orange">logged in as <%= current_user.username %></li>
           <li style="float:right"><a class="menu-buttons" href="/logout">logout</a></li>
         <% else %>
           <li><a class="menu-buttons" href="/login">login</a></li>

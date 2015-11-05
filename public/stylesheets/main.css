@@ -110,6 +110,13 @@ li {
   position: relative;
   text-align: center;
   background-color: #F8F8F8;
+  float:left;
+}
+#about-text {
+  position: relative;
+  float:left;
+  text-align: center;
+  background-color: #F8F8F8;
 }
 
 /* CHALLENGE PAGE +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
