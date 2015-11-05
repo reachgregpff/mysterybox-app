@@ -105,18 +105,18 @@ get '/recipes' do
 
   #combo 5
 
-  query_string = "http://food2fork.com/api/search?key=" + F2F_KEY + "&sort=r&q=" + @combo5.join(", ")
+  query_string = "http://food2fork.com/api/search?key=" + F2F_KEY + "&sort=r&q=" + @combo5.join(",")
   @results5 = HTTParty.get(query_string)
 
   #combo 4
   for i in 0..(@combo4.length-1) do
-    query_string = "http://food2fork.com/api/search?key=" + F2F_KEY + "&sort=r&q=" + @combo4[i].join(", ")
+    query_string = "http://food2fork.com/api/search?key=" + F2F_KEY + "&sort=r&q=" + @combo4[i].join(",")
     @results4[i] = HTTParty.get(query_string)
   end
 
   #combo 3
   for i in 0..(@combo3.length-1) do
-    query_string = "http://food2fork.com/api/search?key=" + F2F_KEY + "&sort=r&q=" + @combo3[i].join(", ")
+    query_string = "http://food2fork.com/api/search?key=" + F2F_KEY + "&sort=r&q=" + @combo3[i].join(",")
     @results3[i] = HTTParty.get(query_string)
   end
 
