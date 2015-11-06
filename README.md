@@ -19,6 +19,7 @@
 
 # Future improvements
  
+  - replace food2fork API with yummly API
   - add an invisible cheat button if you wish to select your own ingredients
   - add a realtime timer, audio files for a countdown and occasional hoorahs/rants while cooking
 
