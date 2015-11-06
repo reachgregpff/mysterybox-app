@@ -101,9 +101,29 @@ li {
   left: 30%;
   top: 5%;
   font-size: 75px;
-  color:white;
+  color:black;
+  text-shadow:
+    -1px -1px 0 #FFF,
+    1px -1px 0 #FFF,
+    -1px 1px 0 #FFF,
+    1px 1px 0 #FFF;
   text-align: center;
 }
+
+#main-caption:hover{
+  position: absolute;
+  left: 30%;
+  top: 5%;
+  font-size: 75px;
+  color:orange;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+  text-align: center;
+}
+
 
 /* ABOUT PAGE +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
