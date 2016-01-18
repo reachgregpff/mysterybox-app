@@ -22,7 +22,7 @@ ingredients = ["duck", "lamb", "chicken", "quail", "turkey", "beef", "pork",
     "coriander", "dil", "rosemary", "sage", "broccoli", "parsley", "celery", "thyme",
     "soy", "honey", "mushroom", "miso", "wine", "beer",
     "tomato", "onion", "capsicum", "olive", "eggs", "chilli", "celeriac",
-    "eggplant", "potato", "beans", "avocado", "coconut", "peanut"
+    "eggplant", "potato", "beans", "avocado", "coconut", "peanut", "pine"
   ]
 
 random_ingredients = nil
